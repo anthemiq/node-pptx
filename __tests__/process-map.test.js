@@ -18,24 +18,25 @@ describe('Presentation Module', () => {
             expect(slide1.content).toBeDefined();
             expect(slide1.content).not.toBeNull();
 
-            let shapeContent = slide1.getShapeRawContent(5);
+            // What in the heck is the reason for this?
+            // let shapeContent = slide1.getShapeRawContent(5);
 
-            if (shapeContent) {
-                if (shapeContent['p:txBody'] && shapeContent['p:txBody'][0]['a:p']) {
-                    if (shapeContent['p:txBody'][0]['a:p'][0]['a:r']) {
-                        shapeContent['p:txBody'][0]['a:p'][0]['a:r'][0]['a:t'] = "Shape's new text!";
-                        //shapeContent['p:txBody'][0]['a:p'][0]['a:endParaRPr'] = [{ $: { lang: 'en-US' } }]; // this MUST go last!
-                    } else {
-                        shapeContent['p:txBody'][0]['a:p'][0]['a:r'] = [
-                            { 'a:rPr': [{ $: { lang: 'en-US', smtClean: '0' } }], 'a:t': 'Mod our own shape' },
-                        ];
+            // if (shapeContent) {
+            //     if (shapeContent['p:txBody'] && shapeContent['p:txBody'][0]['a:p']) {
+            //         if (shapeContent['p:txBody'][0]['a:p'][0]['a:r']) {
+            //             shapeContent['p:txBody'][0]['a:p'][0]['a:r'][0]['a:t'] = "Shape's new text!";
+            //             //shapeContent['p:txBody'][0]['a:p'][0]['a:endParaRPr'] = [{ $: { lang: 'en-US' } }]; // this MUST go last!
+            //         } else {
+            //             shapeContent['p:txBody'][0]['a:p'][0]['a:r'] = [
+            //                 { 'a:rPr': [{ $: { lang: 'en-US', smtClean: '0' } }], 'a:t': 'Mod our own shape' },
+            //             ];
 
-                        //shapeContent['p:txBody'][0]['a:p'][0]['a:endParaRPr'] = [{ $: { lang: 'en-US' } }]; // this MUST go last!
-                    }
-                }
-            } else {
-                console.log('Cound not find any shapes!');
-            }
+            //             //shapeContent['p:txBody'][0]['a:p'][0]['a:endParaRPr'] = [{ $: { lang: 'en-US' } }]; // this MUST go last!
+            //         }
+            //     }
+            // } else {
+            //     console.log('Cound not find any shapes!');
+            // }
 
             let slide2 = await presentation.addSlide('slideLayout7');
 
