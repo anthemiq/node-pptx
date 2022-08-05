@@ -10,9 +10,9 @@ describe('Presentation Module', () => {
             expect.assertions(3);
 
             let fulltemplateFilePath = `${__dirname}/fixtures/raci-matrix.pptx`;
-            let presentation = new PPTX.Presentation({ templateFilePath: fulltemplateFilePath });
+            let presentation = new PPTX.Presentation();
 
-            await presentation.loadExistingPPTX();
+            await presentation.loadFromFile(fulltemplateFilePath);
             let slide1 = presentation.getSlide('slide1');
 
             expect(slide1.content).toBeDefined();

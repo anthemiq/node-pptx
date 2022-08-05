@@ -14,7 +14,7 @@ describe('Presentation Module', () => {
 
                 let pptx = new PPTX.Composer();
 
-                await pptx.load(`${__dirname}/fixtures/basic.pptx`);
+                await pptx.loadFromFile(`${__dirname}/fixtures/basic.pptx`);
                 await pptx.presentation.addSlide();
                 await pptx.save(`${tmpDir}/presentation-existing-add-slide.pptx`);
 

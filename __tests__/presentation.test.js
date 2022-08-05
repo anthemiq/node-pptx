@@ -15,10 +15,10 @@ describe('Presentation Module', () => {
 
                 let pptx = new PPTX.Composer();
 
-                await pptx.load(`${__dirname}/fixtures/basic.pptx`);
+                await pptx.loadFromFile(`${__dirname}/fixtures/basic.pptx`);
                 await pptx.save(`${tmpDir}/presentation-existing-rewrite.pptx`);
 
-                await pptx.load(`${__dirname}/fixtures/basic2.pptx`);
+                await pptx.loadFromFile(`${__dirname}/fixtures/basic2.pptx`);
                 await pptx.compose(pres => {
                     pres.getSlide('slide1').addImage(image => {
                         image

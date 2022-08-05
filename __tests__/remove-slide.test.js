@@ -148,7 +148,7 @@ describe('Presentation Module', () => {
 
             let pptx = new PPTX.Composer();
 
-            await pptx.load(`${__dirname}/fixtures/raci-matrix.pptx`);
+            await pptx.loadFromFile(`${__dirname}/fixtures/raci-matrix.pptx`);
             await pptx.compose(async pres => {
                 pres.removeSlide(pres.getSlide('slide1'));
 

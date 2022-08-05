@@ -6,7 +6,7 @@ const tmpDir = `${__dirname}/tmp`;
 // if the "slideNumber" slide in "pptx" matches the XML of the same slide in "validationFileName"
 async function verifySlideMatch(slideNumber, pptx, validationFileName) {
     let comparisonPptx = new PPTX.Composer();
-    await comparisonPptx.load(validationFileName);
+    await comparisonPptx.loadFromFile(validationFileName);
     let comparisonXml = comparisonPptx.getSlide(slideNumber).getSlideXmlAsString();
     let xml = pptx.getSlide(slideNumber).getSlideXmlAsString();
 
@@ -26,7 +26,7 @@ describe('Presentation Module', () => {
 
             let pptx = new PPTX.Composer();
 
-            await pptx.load(`${__dirname}/fixtures/three-slides.pptx`);
+            await pptx.loadFromFile(`${__dirname}/fixtures/three-slides.pptx`);
             await pptx.compose(async pres => {
                 let slide = pres.getSlide(3);
                 slide.moveTo(2);
@@ -63,7 +63,7 @@ describe('Presentation Module', () => {
 
             let pptx = new PPTX.Composer();
 
-            await pptx.load(`${__dirname}/fixtures/six-slides.pptx`);
+            await pptx.loadFromFile(`${__dirname}/fixtures/six-slides.pptx`);
             await pptx.compose(async pres => {
                 let slide = pres.getSlide(5);
                 slide.moveTo(2);
@@ -92,7 +92,7 @@ describe('Presentation Module', () => {
 
             let pptx = new PPTX.Composer();
 
-            await pptx.load(`${__dirname}/fixtures/six-slides.pptx`);
+            await pptx.loadFromFile(`${__dirname}/fixtures/six-slides.pptx`);
             await pptx.compose(async pres => {
                 let slide = pres.getSlide(2);
                 slide.moveTo(6);
